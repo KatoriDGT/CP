@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define ten "merge"
+#define ten "quyhoachdong"
 #define io false
 #define iftest false
 #define pb push_back
@@ -28,33 +28,19 @@ ll fastpow(ll a, ll b, ll c = mods){
     }
     return ans;
 }
-string s[105];
-int n;
+
 void solve()
 {
-    cin >> n;
-    cin.ignore();
-    for(int i = 1; i <= n; i++)
+    int a, b, c, d;
+    int id = 0;
+    while(cin >> a >> b >> c >> d)
     {
-        string line;
-        getline(cin, line);
-        int sz = line.length();
-        string s2;
-        int index = 0;
-        int dem = 0;
-        for(int i = 0; i < sz; i++)
-        {
-            if(line[i] <= '9' && line[i] >= '0')
-                index = index * 10 + (line[i] - 48);
-            else if(line[i] == ' ')
-                {
-                    s[dem] = s2;
-                    dem++;
-                    s2 = "";
-                }
-            else s2 += line[i];
-        }
-        cout << s[index-1] << " ";
+        if(id)
+            cout << " ";
+        if(a + b + c >= d && (a > 0 && b > 0 && c > 0) && d >= 3)
+            cout << "No";
+        else cout << "Yes";
+        id++;
     }
 }
 
