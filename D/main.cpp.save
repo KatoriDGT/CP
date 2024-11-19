@@ -148,13 +148,14 @@ void solve()
     dp_c[1][0] = dp[xet[0]][1];
     for(int i = 1; i < sz; i++)
     {
+
         int id = xet[i];
         int type = 1;
         while(type >= 0)
         {
             int chon = min(dp_c[type][0], dp_c[type][1]) + dp[id][1];
             int khong = dp_c[type][1] + dp[id][0];
-            if(i == 1 && type == 0)
+            if(i == 2 && type == 0)
             {
                khong = chon;
             }
@@ -163,7 +164,7 @@ void solve()
             //cout << dp_c[type][0] << " " << dp_c[type][1] << " ";
             type--;
         }
-       // cout << "\n";
+        /cout << "\n";
     }
     int rs = min({dp_c[0][1], dp_c[1][1], dp_c[1][0]}) - 1;
     cout << max(rs, 0);
